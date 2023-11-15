@@ -49,9 +49,15 @@ async def async_call(item_name: str = None):
     return JSONResponse(content={"message": result})
 
 
-@app.get("/get_student")
+@app.get("/get_student_async")
 async def async_call():
-    result = await example_instance.get_student()
+    result = await example_instance.get_student_async()
+    return JSONResponse(content={"students": result})
+
+
+@app.get("/get_student_sync")
+async def async_call():
+    result = await example_instance.get_student_sync()
     return JSONResponse(content={"students": result})
 
 

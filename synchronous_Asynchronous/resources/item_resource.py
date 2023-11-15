@@ -2,6 +2,8 @@ from pydantic import BaseModel
 import asyncio
 import aiohttp
 import json
+import time
+import requests
 
 
 class Item(BaseModel):
@@ -49,9 +51,9 @@ class ItemResource:
             }
         return result
 
-    async def get_student(self):
+    async def get_student_async(self):
         full_result = None
-
+        start_time = time.time()
         async with aiohttp.ClientSession() as session:
             tasks = [asyncio.ensure_future(
                 ItemResource.fetch(session, res)) for res in ItemResource.resources]
@@ -59,10 +61,24 @@ class ItemResource:
             full_result = {}
             for response in responses:
                 full_result[response["resource"]] = response["data"]
+            end_time = time.time()
+            full_result["elapsed_time"] = end_time - start_time
 
             return full_result
 
             # print("\nFull Result = ", json.dumps(full_result, indent=2))
 
+    async def get_student_sync(self):
+        full_result = None
+        start_time = time.time()
 
+        full_result = {}
+
+        for r in ItemResource.resources:
+            response = requests.get(r["url"])
+            full_result[r["resource"]] = response.json()
+        end_time = time.time()
+        full_result["elapsed_time"] = end_time - start_time
+
+        return full_result
 
