@@ -6,11 +6,11 @@ import time
 import requests
 
 
-class Item(BaseModel):
+class Student(BaseModel):
     name: str
 
 
-class ItemResource:
+class StudentResource:
     #
     # These endpoints are on Prof. Ferguson's SwaggerHub mock APIs
     #
@@ -29,7 +29,7 @@ class ItemResource:
         }
     ]
 
-    async def get_item(self, item: Item = None, sleep=5) -> str:
+    async def get_item(self, item: Student = None, sleep=5) -> str:
         # Simulate an asynchronous operation
         if item and item.name:
             n = item.name
@@ -56,7 +56,7 @@ class ItemResource:
         start_time = time.time()
         async with aiohttp.ClientSession() as session:
             tasks = [asyncio.ensure_future(
-                ItemResource.fetch(session, res)) for res in ItemResource.resources]
+                StudentResource.fetch(session, res)) for res in StudentResource.resources]
             responses = await asyncio.gather(*tasks)
             full_result = {}
             for response in responses:
@@ -74,7 +74,7 @@ class ItemResource:
 
         full_result = {}
 
-        for r in ItemResource.resources:
+        for r in StudentResource.resources:
             response = requests.get(r["url"])
             full_result[r["resource"]] = response.json()
         end_time = time.time()

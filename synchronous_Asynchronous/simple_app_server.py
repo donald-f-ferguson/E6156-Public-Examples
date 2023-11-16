@@ -3,12 +3,12 @@ from fastapi.responses import JSONResponse, HTMLResponse
 from pydantic import BaseModel
 import asyncio
 import uvicorn
-from resources.item_resource import ItemResource, Item
+from resources.student_resource import StudentResource, Student
 
 app = FastAPI()
 
 
-example_instance = ItemResource()
+example_instance = StudentResource()
 
 
 @app.get("/")

@@ -1,10 +1,10 @@
-from synchronous_Asynchronous.resources.item_resource import ItemResource
+from synchronous_Asynchronous.resources.student_resource import StudentResource
 import json
 import asyncio
 
 
 async def t1():
-    it = ItemResource()
+    it = StudentResource()
 
     result = await it.get_student()
     if result:
