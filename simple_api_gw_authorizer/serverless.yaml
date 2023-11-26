@@ -1,0 +1,39 @@
+service: jwt-authorizer-service
+
+provider:
+  name: aws
+  runtime: python3.10
+  region: us-east-1 # Specify your desired AWS region
+
+functions:
+  jwtAuthorizer:
+    handler: lamda_authorizer.lambda_handler
+    events:
+ #     - http:
+ #         path: /jwtAuthorizer
+ #         method: ANY
+ #         cors: true
+ #         authorizer:
+ #           name: JwtAuthorizer
+ #           identitySource: method.request.header.Authorization
+ #           type: token
+
+resources:
+  Resources:
+    JwtAuthorizer:
+      Type: AWS::ApiGateway::Authorizer
+      Properties:
+        AuthorizerResultTtlInSeconds: 300
+        IdentitySource: method.request.header.Authorization
+        Name: JwtAuthorizer
+        Type: token
+        RestApiId:
+          Ref: zt5yh6abm7
+        ProviderARNs:
+          - Fn::GetAtt:
+              - JwtAuthorizerLambdaFunction
+              - Arn
+  Outputs:
+    JwtAuthorizerId:
+      Value:
+        Ref: JwtAuthorizer

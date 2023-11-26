@@ -5,6 +5,7 @@
 import asyncio
 import aiohttp
 import json
+import requests
 
 #
 # These endpoints are on Prof. Ferguson's SwaggerHub mock APIs
@@ -37,6 +38,20 @@ async def fetch(session, resource):
         }
     return result
 
+def synch_main():
+
+    result = []
+
+    for r in resources:
+        t = requests.get(r["url"])
+        t = t.json()
+        result.append(
+            {
+                "resource": t["resource"],
+                "data": t
+            }
+        )
+
 
 async def main():
     async with aiohttp.ClientSession() as session:
@@ -49,5 +64,7 @@ async def main():
         print("\nFull Result = ", json.dumps(full_result, indent=2))
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+# loop = asyncio.get_event_loop()
+# loop.run_until_complete(main())
+
+synch_main()

@@ -5,6 +5,8 @@ import json
 import time
 import requests
 
+import os
+
 
 class Student(BaseModel):
     name: str
