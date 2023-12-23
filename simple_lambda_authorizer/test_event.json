@@ -1,0 +1,88 @@
+{
+    "event_1": {
+        "type": "REQUEST",
+        "methodArn": "arn:aws:execute-api:us-east-1:150198544176:n3punmjpg4/default/GET/simplest_lambda",
+        "resource": "/simplest_lambda",
+        "path": "/simplest_lambda",
+        "httpMethod": "ANY",
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJzY29wZSI6W3siYXBpIjoibjNwdW5tanBnNCIsInN0YWdlIjoiZGVmYXVsdCIsIm1ldGhvZCI6IkdFVCIsInJlc291cmNlIjoic2ltcGxlc3RfbGFtYmRhIn1dfQ.sLv7xsi__UHSj_zkJzACyyN-ch_QSMjVd8Za2TFqlrg",
+            "Postman-Token": "b812867b-c17e-4cbc-954c-3382b256ba1e",
+            "User-Agent": "PostmanRuntime/7.29.2",
+            "X-Amzn-Trace-Id": "Root=1-6585c44d-198675d8346f0c544d22e1e3",
+            "X-Forwarded-For": "67.83.26.114",
+            "X-Forwarded-Port": "443",
+            "X-Forwarded-Proto": "https"
+        },
+        "multiValueHeaders": {
+            "Accept": [
+                "*/*"
+            ],
+            "Accept-Encoding": [
+                "gzip, deflate, br"
+            ],
+            "Authorization": [
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJzY29wZSI6W3siYXBpIjoibjNwdW5tanBnNCIsInN0YWdlIjoiZGVmYXVsdCIsIm1ldGhvZCI6IkdFVCIsInJlc291cmNlIjoic2ltcGxlc3RfbGFtYmRhIn1dfQ.sLv7xsi__UHSj_zkJzACyyN-ch_QSMjVd8Za2TFqlrg"
+                ],
+            "Host": [
+                "n3punmjpg4.execute-api.us-east-1.amazonaws.com"
+            ],
+            "Postman-Token": [
+                "b812867b-c17e-4cbc-954c-3382b256ba1e"
+            ],
+            "User-Agent": [
+                "PostmanRuntime/7.29.2"
+            ],
+            "X-Amzn-Trace-Id": [
+                "Root=1-6585c44d-198675d8346f0c544d22e1e3"
+            ],
+            "X-Forwarded-For": [
+                "67.83.26.114"
+            ],
+            "X-Forwarded-Port": [
+                "443"
+            ],
+            "X-Forwarded-Proto": [
+                "https"
+            ]
+        },
+        "queryStringParameters": {},
+        "multiValueQueryStringParameters": {},
+        "pathParameters": {},
+        "stageVariables": {},
+        "requestContext": {
+            "resourceId": "ves3x8",
+            "resourcePath": "/simplest_lambda",
+            "httpMethod": "GET",
+            "extendedRequestId": "QWucMG7JoAMEb6Q=",
+            "requestTime": "22/Dec/2023:17:15:57 +0000",
+            "path": "/default/simplest_lambda",
+            "accountId": "150198544176",
+            "protocol": "HTTP/1.1",
+            "stage": "default",
+            "domainPrefix": "n3punmjpg4",
+            "requestTimeEpoch": 1703265357721,
+            "requestId": "c757f0a1-faf4-405b-b0f3-fce92c43d2fa",
+            "identity": {
+                "cognitoIdentityPoolId": null,
+                "accountId": null,
+                "cognitoIdentityId": null,
+                "caller": null,
+                "sourceIp": "67.83.26.114",
+                "principalOrgId": null,
+                "accessKey": null,
+                "cognitoAuthenticationType": null,
+                "cognitoAuthenticationProvider": null,
+                "userArn": null,
+                "userAgent": "PostmanRuntime/7.29.2",
+                "user": null
+            },
+            "domainName": "n3punmjpg4.execute-api.us-east-1.amazonaws.com",
+            "apiId": "n3punmjpg4"
+        }
+    }
+}
+
+

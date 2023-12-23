@@ -1,4 +1,4 @@
-from synchronous_Asynchronous.resources.student_resource import StudentResource
+from old_examples.synchronous_Asynchronous.resources.student_resource import StudentResource
 import json
 import asyncio
 

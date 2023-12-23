@@ -1,0 +1,47 @@
+openapi: "3.0.1"
+info:
+  title: "simplest_api"
+  description: "Created by AWS Lambda"
+  version: "2023-12-22T21:18:00Z"
+servers:
+- url: "https://n3punmjpg4.execute-api.us-east-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "default"
+paths:
+  /simplest_lambda:
+    x-amazon-apigateway-any-method:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      security:
+      - simplest_lambda_authorizer: []
+      x-amazon-apigateway-integration:
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:150198544176:function:simplest_lambda_function/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        contentHandling: "CONVERT_TO_TEXT"
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"
+  securitySchemes:
+    simplest_lambda_authorizer:
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"
+      x-amazon-apigateway-authorizer:
+        type: "request"
+        authorizerUri: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:150198544176:function:new_simple_lambda_authorizer/invocations"
+        authorizerResultTtlInSeconds: 300
+        identitySource: "method.request.header.Authorization"
